@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../DAL/DAL.csproj" Id="366b613d-6031-4d6d-a1c9-69bf30bb573f" />
+  <Project Path="MVCWebApplication.csproj" />
+</Solution>
