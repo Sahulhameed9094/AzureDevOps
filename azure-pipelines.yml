@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: Default  # or your custom pool name
+  name: Default  # or your custom pool name
 
 variables:
 #  solution: '**/*.sln'
