@@ -18,7 +18,7 @@ variables:
 steps:
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build'
+    command: 'build' #task -> build
     projects: '$(projectPath)'
     arguments: '--configuration $(buildConfiguration)'
 
