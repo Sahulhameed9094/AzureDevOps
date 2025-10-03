@@ -16,30 +16,30 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2 #task -> build
   inputs:
     command: 'build' #task -> build
     projects: '$(projectPath)'
     arguments: '--configuration $(buildConfiguration)'
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2 #task -> build -> Publish -> move -> artifacts
   inputs:
     command: 'publish'
     publishWebProjects: true
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
-- task: FileTransform@2
+- task: FileTransform@2 # change appsettings contection string
   inputs:
     folderPath: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     enableXmlTransform: false
     enableJsonTransform: true
     jsonTargetFiles: '**/appsettings.json'
 
-- task: PublishBuildArtifacts@1
+- task: PublishBuildArtifacts@1 #prepare artifacts output file
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-- task: AzureWebApp@1
+- task: AzureWebApp@1 # publsih to azure web app 
   inputs:
     azureSubscription: 'Azure Free Tier(4a64603b-031a-45ca-8cd2-4b269cce3e99)'
     appType: 'webApp'
