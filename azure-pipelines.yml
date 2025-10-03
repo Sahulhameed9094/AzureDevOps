@@ -31,3 +31,10 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure Free Tier(4a64603b-031a-45ca-8cd2-4b269cce3e99)'
+    appType: 'webApp'
+    appName: 'MVCWebApplication'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
