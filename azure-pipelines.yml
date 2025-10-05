@@ -44,5 +44,5 @@ steps:
     azureSubscription: 'Azure Free Tier(4a64603b-031a-45ca-8cd2-4b269cce3e99)'
     appType: 'webApp'
     appName: 'MVCWebApplication'
-    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectoryBuild.ArtifactStagingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
